@@ -1,3 +1,4 @@
+import credentials
 import requests
 import pyperclip
 from kivy.app import App
@@ -12,6 +13,8 @@ global fontSize, ht, wdth
 fontSize = 18
 ht = 30
 wdth = 200
+
+apikey = credentials.api_key
 # TODO: Line 68 change default telegram sending msg
 
 
@@ -94,10 +97,10 @@ class MyGridLayout(GridLayout):
         buy_sell = self.buysell_toggle
 
         def sendcopy(w, x, y):
-            url1 = "https://api.telegram.org/bot2075319734:AAH9EUD-Mc_XviKhqdBb-ETSunBfTETGP64/sendMessage?chat_id=889863862&text="+"-----------------"
-            url2 = "https://api.telegram.org/bot2075319734:AAH9EUD-Mc_XviKhqdBb-ETSunBfTETGP64/sendMessage?chat_id=889863862&text=`"+w+"`&parse_mode=MARKDOWN"
-            url3 = "https://api.telegram.org/bot2075319734:AAH9EUD-Mc_XviKhqdBb-ETSunBfTETGP64/sendMessage?chat_id=889863862&text=`"+x+"`&parse_mode=MARKDOWN"
-            url4 = "https://api.telegram.org/bot2075319734:AAH9EUD-Mc_XviKhqdBb-ETSunBfTETGP64/sendMessage?chat_id=889863862&text=`"+y+"`&parse_mode=MARKDOWN"
+            url1 = "https://api.telegram.org/bot" + apikey + "/sendMessage?chat_id=889863862&text="+"-----------------"
+            url2 = "https://api.telegram.org/bot" + apikey +"/sendMessage?chat_id=889863862&text=`"+w+"`&parse_mode=MARKDOWN"
+            url3 = "https://api.telegram.org/bot" + apikey + "/sendMessage?chat_id=889863862&text=`"+x+"`&parse_mode=MARKDOWN"
+            url4 = "https://api.telegram.org/bot" + apikey + "/sendMessage?chat_id=889863862&text=`"+y+"`&parse_mode=MARKDOWN"
             # time.sleep(5)
             r1 = requests.get(url1)
             r2 = requests.get(url2)
