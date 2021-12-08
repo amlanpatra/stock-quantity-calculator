@@ -13,9 +13,9 @@ global fontSize, ht, wdth
 fontSize = 18
 ht = 30
 wdth = 200
-
+chat_id = credentials.chat_id
 apikey = credentials.api_key
-# TODO: Line 68 change default telegram sending msg
+# TODO: Line 72 change default telegram sending msg and also in Line 30
 
 
 class MyGridLayout(GridLayout):
@@ -38,7 +38,7 @@ class MyGridLayout(GridLayout):
             Label(text="Risk Amount (Rs.)", font_size=fontSize))
         self.risk = TextInput(multiline=False)
         self.top_grid.add_widget(self.risk)
-        self.risk.text = "300"
+        self.risk.text = "1500"
 
         btn1 = ToggleButton(text="Buy", group="buy_sell")
         btn2 = ToggleButton(text="Sell", group="buy_sell")
@@ -97,10 +97,14 @@ class MyGridLayout(GridLayout):
         buy_sell = self.buysell_toggle
 
         def sendcopy(w, x, y):
-            url1 = "https://api.telegram.org/bot" + apikey + "/sendMessage?chat_id=889863862&text="+"-----------------"
-            url2 = "https://api.telegram.org/bot" + apikey +"/sendMessage?chat_id=889863862&text=`"+w+"`&parse_mode=MARKDOWN"
-            url3 = "https://api.telegram.org/bot" + apikey + "/sendMessage?chat_id=889863862&text=`"+x+"`&parse_mode=MARKDOWN"
-            url4 = "https://api.telegram.org/bot" + apikey + "/sendMessage?chat_id=889863862&text=`"+y+"`&parse_mode=MARKDOWN"
+            url1 = "https://api.telegram.org/bot" + apikey + \
+                "/sendMessage?chat_id=" + chat_id + "&text="+"-----------------"
+            url2 = "https://api.telegram.org/bot" + apikey + \
+                "/sendMessage?chat_id=" + chat_id + "&text=`"+w+"`&parse_mode=MARKDOWN"
+            url3 = "https://api.telegram.org/bot" + apikey + \
+                "/sendMessage?chat_id=" + chat_id + "&text=`"+x+"`&parse_mode=MARKDOWN"
+            url4 = "https://api.telegram.org/bot" + apikey + \
+                "/sendMessage?chat_id=" + chat_id + "&text=`"+y+"`&parse_mode=MARKDOWN"
             # time.sleep(5)
             r1 = requests.get(url1)
             r2 = requests.get(url2)
