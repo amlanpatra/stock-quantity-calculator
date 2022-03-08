@@ -178,15 +178,19 @@ class MyGridLayout(GridLayout):
 
         try:
             risk = int(risk)
+            # sl = abs(int(price) - int(sl))
             sl = int(sl)
             result = int(risk//sl)
+            margin = 5  # TODO: margin 5x
             # arr = brokerageCalc(buyPrice, sellPrice, result)
             arr = brokerageCalc(price, price, result)
             if(int(arr[0]) != 0):
                 risk = risk - int(arr[0])
                 if (int(risk//sl) > 0):
-                    result = str(int(risk//sl)) + \
-                        "     Breakeven : " + str(arr[2])
+                    # result = str(int(risk//sl)) + "   BE:" + str(arr[2])
+                    result = str(int(risk//sl)) + "   BE:" + \
+                        str(arr[2]) + "   M:" + \
+                        str(round(((risk//sl)*int(float(price)))/500000, 3)) + "L"
 
                     if(buy_sell == 1):
                         # buy bcz buy_sell is 1, so SL trigger is lower
