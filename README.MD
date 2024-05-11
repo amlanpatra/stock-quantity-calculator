@@ -29,3 +29,11 @@
 5. Click Calculate
 6. It will show you the probable Trigger Price which you had in your mind, and it is for CROSS VERIFICATION
 7. The best position size will be shown followed by the "Breakeven" and "Margin" amount required for that trade
+
+## Update
+
+We can also get the Futures and Equities calculators by running
+This is the app of basic stock quantity calculation in python(kivy) // Run the app code from Terminal (Also can be found in calc folder):
+` source .venv/bin/activate && python3 equity_main.py`
+or
+` source .venv/bin/activate && python3 futures_main.py`
